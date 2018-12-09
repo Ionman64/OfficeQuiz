@@ -1,0 +1,75 @@
+.arr-bread {
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    list-style: none;
+    background-color: #D5DAE1
+}
+
+.arr-bread li, .arr-bread li a, .arr-bread li span {
+    display: inline-block;
+    vertical-align: top
+}
+.arr-bread li:not(:first-child) {
+    margin-left: 0px
+}
+.arr-bread li+li:before {
+    padding: 0;
+    content: ""
+}
+.arr-bread li span {
+    padding: 0 10px
+}
+.arr-bread li a, .arr-bread li:not(:first-child) span {
+    height: 36px;
+    padding: 0 10px 0 25px;
+    line-height: 36px
+}
+.arr-bread li:first-child a {
+    padding: 0 10px
+}
+.arr-bread li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color:#D5DAE1;
+    border: 1px solid rgb(0, 0, 0)
+}
+.arr-bread li:first-child a {
+    padding-left: 10px
+}
+.arr-bread li a:after, .arr-bread li a:before {
+    position: absolute;
+    top: -1px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent
+}
+.arr-bread li a:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #D5DAE1;
+    border-left-style: solid;
+    border-left-width: 11px
+}
+.arr-bread li a:after {
+    right: -11px;
+    z-index: 2;
+    border-left: 11px solid #000
+}
+.arr-bread li a:focus, .arr-bread li a:hover {
+    background-color: #D5DAE1;
+    border: 1px solid #D5DAE1
+}
+.arr-bread li a:focus:before, .arr-bread li a:hover:before {
+    border-left-color: #D5DAE1
+}
+.arr-bread li a:active {
+    background-color: #2494be;
+    border: 1px solid #2494be
+}
+.arr-bread li a:active:after, .arr-bread li a:active:before {
+    border-left-color: #2494be
+}

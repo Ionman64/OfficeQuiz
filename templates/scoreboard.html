@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="/static/img/favicon.ico" type="image/icon"> 
+        <link rel="stylesheet" href="/static/thirdParty/bootstrap4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/static/css/santa.css"/>
+        <title>{{app_name}} - ScoreBoard</title>
+    </head>
+    <body class="bg-danger">
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center text-white" style="margin-top:5%;">
+                <div class="col-12">
+                        <div class="window">
+                        <div class="santa">
+                            <div class="head">
+                                <div class="face">
+                                    <div class="redhat">
+                                        <div class="whitepart"></div>
+                                        <div class="redpart"></div>
+                                        <div class="hatball"></div>
+                                    </div>
+                                    <div class="eyes"></div>
+                                    <div class="beard">
+                                        <div class="nouse"></div>
+                                        <div class="mouth"></div>
+                                    </div>
+                                </div>
+                                <div class="ears"></div>
+                            </div>
+                            <div class="body">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="text-center">ScoreBoard</h1>
+                </div>
+                <div class="col-12">
+                    {% for (name, group) in groups.items() %}
+                        {% block group %}
+                        <h2>{{escape(name)}}</h2>
+                        <h5>Score: {{escape(str(group.get_team_score()))}}</h5>
+                        <table class="table">
+                                <thead>
+                                    <th>Player Name</th>
+                                    <th>Score</th>
+                                    <th>Bonus</th>
+                                    <th>Total</th>
+                                </thead>
+                                <tbody>
+                                    {% for player in group.get_players() %}
+                                        {% block player %}
+                                            <tr>
+                                                <td>{{ escape(player.get_name()) }}</td>
+                                                <td>{{ escape(str(player.get_score())) }}</td>
+                                                <td>{{ escape(str(player.get_bonus())) }}</td>
+                                                <td>{{ escape(str(player.get_total_score())) }}</td>
+                                            </tr>
+                                        {% end %}
+                                    {% end %}
+                                </tbody>
+                            </table>
+                        {% end %}
+                    {% end %}
+                </div>
+            </div>   
+        </div>
+      </body>
+</html>
